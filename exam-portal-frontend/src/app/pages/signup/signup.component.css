@@ -1,0 +1,19 @@
+.field-container{
+    width: 100%;
+    margin: auto;
+}
+
+.full-width{
+    width: 70%;
+}
+
+.card-header{
+    width: 100% !important;
+    margin-bottom: 3rem !important;
+}
+
+.header-txt{
+    font-size: 28px;
+    
+   
+}
