@@ -11,7 +11,7 @@ public class RoleEntity {
     private Integer id;
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "role")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
     private Set<UserRole> userRoles = new HashSet<>();
 
 

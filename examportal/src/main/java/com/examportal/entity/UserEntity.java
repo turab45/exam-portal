@@ -3,7 +3,6 @@ package com.examportal.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.security.AllPermission;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -120,5 +119,21 @@ public class UserEntity {
 
     public void setUserRoles(Set<UserRole> userRoles) {
         this.userRoles = userRoles;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", profileImg='" + profileImg + '\'' +
+                ", active=" + active +
+                ", userRoles=" + userRoles +
+                '}';
     }
 }

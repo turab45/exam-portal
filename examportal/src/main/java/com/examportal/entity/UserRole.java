@@ -13,6 +13,14 @@ public class UserRole {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private  RoleEntity role;
 
+    public UserRole() {
+    }
+
+    public UserRole(UserEntity user, RoleEntity role) {
+        this.user = user;
+        this.role = role;
+    }
+
     public Integer getId() {
         return id;
     }
