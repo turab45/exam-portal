@@ -5,10 +5,7 @@ import com.examportal.entity.UserEntity;
 import com.examportal.entity.UserRole;
 import com.examportal.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -30,5 +27,20 @@ public class UserController {
         userRoles.add(new UserRole(userEntity, role1));
 
         return this.userService.create(userEntity, userRoles);
+    }
+
+    @GetMapping("/{username}")
+    public UserEntity getUser(@PathVariable String username){
+        return this.userService.getUserByName(username);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id){
+        this.userService.deleteUserById(id);
+    }
+
+    @PutMapping("/update")
+    public UserEntity updateUser(@RequestBody UserEntity user){
+        return this.userService.updateUser(user);
     }
 }

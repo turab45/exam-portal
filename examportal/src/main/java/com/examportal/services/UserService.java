@@ -8,4 +8,8 @@ import java.util.Set;
 
 public interface UserService {
     public UserEntity create(UserEntity userEntity, Set<UserRole> userRoles);
+    public UserEntity getUserByName(String username);
+    public void deleteUserById(Integer id);
+    public UserEntity updateUser(UserEntity userEntity);
+
 }

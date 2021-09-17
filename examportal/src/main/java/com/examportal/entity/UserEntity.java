@@ -14,8 +14,6 @@ public class UserEntity {
     private Integer id;
     private String name;
     private String password;
-    private String firstName;
-    private String lastName;
     private String email;
     private String phone;
     private String profileImg;
@@ -29,12 +27,10 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(Integer id, String name, String password, String firstName, String lastName, String email, String phone,String profileImg, boolean active) {
+    public UserEntity(Integer id, String name, String password, String email, String phone,String profileImg, boolean active) {
         this.id = id;
         this.name = name;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.profileImg = profileImg;
@@ -63,22 +59,6 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -127,8 +107,6 @@ public class UserEntity {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", profileImg='" + profileImg + '\'' +
