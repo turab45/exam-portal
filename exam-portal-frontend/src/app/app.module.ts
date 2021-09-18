@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { HomeComponent } from './pages/home/home.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { HomeComponent } from './pages/home/home.component';
     MatCardModule,
     MatToolbarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
