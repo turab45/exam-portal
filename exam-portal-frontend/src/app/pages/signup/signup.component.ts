@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from 'src/app/services/user-service.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  public user = {
+    name: '',
+    password: '',
+    email: '',
+    phone: ''
+  }
+  constructor(private userService: UserServiceService) {
+  }
+
 
   ngOnInit(): void {
+  }
+
+  formSubmit() {
+    this.userService.addUser(this.user).subscribe(
+      (data) => {
+        Swal.fire('Registered successfully.', 'You have been registered successfully.', 'success')
+        console.log(data);
+      },
+      (error) => {
+        Swal.fire('Oops...', 'Something went wrong!', 'error')
+      }
+    );;
   }
 
 }
