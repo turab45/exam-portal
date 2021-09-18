@@ -14,6 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { HomeComponent } from './pages/home/home.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import Swal from 'sweetalert2';
     NavbarComponent,
     SignupComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
