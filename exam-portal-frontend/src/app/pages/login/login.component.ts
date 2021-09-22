@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,16 +9,26 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   public user = {
-    email: '',
+    username: '',
     password: ''
   }
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
 
   formSubmit() {
     alert("submitted..");
+    // request to server to generate token
+    this.loginService.generateToken(this.user).subscribe(
+      (success: any) => {
+        console.log(success);
+      }, (error) => {
+        console.log(error);
+      }
+    );;
+
   }
+
 
 }

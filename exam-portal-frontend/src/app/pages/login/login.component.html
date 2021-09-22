@@ -12,16 +12,20 @@
                     <div class="field-container text-center">
 
                         <mat-form-field class="example-full-width full-width" appearance="outline">
-                            <mat-label>Email</mat-label>
-                            <input [(ngModel)]="user.email" name="email" type="email" matInput
-                                placeholder="Enter your email address">
-
+                            <mat-label>User Name</mat-label>
+                            <input [(ngModel)]="user.username" name="username" type="text" matInput
+                                placeholder="Enter your username" required #usernameController="ngModel">
+                            <mat-error *ngIf="usernameController.hasError('required')">
+                                Please enter a valid user name
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field class="example-full-width full-width" appearance="outline">
                             <mat-label>Password</mat-label>
                             <input [(ngModel)]="user.password" name="password" type="password" matInput
-                                placeholder="Enter your password">
-
+                                placeholder="Enter your password" required #passwordController="ngModel">
+                            <mat-error *ngIf="passwordController.hasError('required')">
+                                Please enter a your password
+                            </mat-error>
                         </mat-form-field>
 
                     </div>
