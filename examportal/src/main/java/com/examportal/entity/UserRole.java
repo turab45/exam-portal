@@ -1,5 +1,7 @@
 package com.examportal.entity;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 
 @Entity
