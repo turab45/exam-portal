@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 py-3 ">
+
+            <mat-card class="shadow p-3 mb-5 bg-white rounded">
+
+
+                <h1 class="header-txt text-center my-3">Sign Up</h1>
+
+
+                <form #ngForm="ngForm" (ngSubmit)="formSubmit()" class="example-form">
+                    <div class="field-container text-center">
+                        <mat-form-field class="example-full-width full-width" appearance="outline">
+                            <mat-label>User Name</mat-label>
+                            <input [(ngModel)]="user.name" name="name" matInput placeholder="Enter username" required
+                                minlength="5" #nameControle="ngModel">
+
+
+                            <mat-error *ngIf="nameControle.hasError('minlength') && !nameControle.hasError('required')">
+                                Please enter a valid user name
+                            </mat-error>
+                            <mat-error *ngIf="nameControle.hasError('required')">
+                                User name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input [(ngModel)]="user.email" name="email" type="email" matInput
+                                placeholder="Enter your email address" #emailControl="ngModel" required
+                                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            <mat-error *ngIf="emailControl.hasError('pattern') && !emailControl.hasError('required')">
+                                Please enter a valid email address
+                            </mat-error>
+                            <mat-error *ngIf="emailControl.hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input [(ngModel)]="user.password" name="password" type="password" matInput
+                                placeholder="Enter your password" #passwordControl="ngModel" required min="12" max="12">
+                            <mat-error *ngIf="passwordControl.hasError('min') && !passwordControl.hasError('required')">
+                                Please enter a valid password
+                            </mat-error>
+                            <mat-error *ngIf="passwordControl.hasError('required')">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width full-width" appearance="outline">
+                            <mat-label>Phone No</mat-label>
+                            <input [(ngModel)]="user.phone" name="phone" type="number" matInput
+                                placeholder="Enter your phone no" required minlength="12" #phoneControl="ngModel">
+                            <mat-error *ngIf="phoneControl.hasError('minlength') && !phoneControl.hasError('required')">
+                                Please enter a valid phone number.
+                            </mat-error>
+                            <mat-error *ngIf="phoneControl.hasError('required')">
+                                Phone number is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" [disabled]="ngForm.invalid" mat-raised-button color="primary">Sign
+                            up</button>
+                        <button type="reset" mat-raised-button color="accent" style="margin-left: 5px;">Reset</button>
+                    </div>
+                </form>
+            </mat-card>
+
+        </div>
+    </div>
+</div>
