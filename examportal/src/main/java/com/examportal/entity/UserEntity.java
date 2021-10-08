@@ -12,7 +12,11 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class UserEntity implements  UserDetails{
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
@@ -63,7 +67,7 @@ public class UserEntity implements  UserDetails{
         this.userRoles.forEach(userRole -> {
             authorities.add(new Authority(userRole.getRole().getName()));
         });
-        return null;
+        return authorities;
     }
 
     public String getPassword() {

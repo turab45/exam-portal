@@ -24,7 +24,7 @@
                             <input [(ngModel)]="user.password" name="password" type="password" matInput
                                 placeholder="Enter your password" required #passwordController="ngModel">
                             <mat-error *ngIf="passwordController.hasError('required')">
-                                Please enter a your password
+                                Please enter your password
                             </mat-error>
                         </mat-form-field>
 
@@ -32,7 +32,7 @@
                     <div class="text-center">
                         <button type="submit" [disabled]="ngForm.invalid" mat-raised-button color="primary">Sign
                             In</button>
-                        <button mat-raised-button color="accent" style="margin-left: 5px;">Forgot password?</button>
+                        <a mat-raised-button color="accent" style="margin-left: 5px;">Forgot password?</a>
                     </div>
                 </form>
             </mat-card>

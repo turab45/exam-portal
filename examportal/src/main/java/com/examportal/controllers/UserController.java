@@ -5,6 +5,7 @@ import com.examportal.entity.UserEntity;
 import com.examportal.entity.UserRole;
 import com.examportal.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
@@ -17,12 +18,16 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @PostMapping("/create")
+    @PostMapping("/")
     public UserEntity create(@RequestBody UserEntity userEntity){
+    	userEntity.setProfileImg("default.png");
+    	userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
         Set<UserRole> userRoles = new HashSet<>();
         RoleEntity role1 = new RoleEntity();
-        role1.setName("!23");
+        role1.setName("123");
         role1.setId(123);
 
         userRoles.add(new UserRole(userEntity, role1));
