@@ -6,12 +6,27 @@
     </a>
     <a routerLink="/" style="text-decoration: none;color: white;">Exam Portal App</a>
     <span class="example-spacer"></span>
-    <a routerLink="/login" style="margin-right: 20px;" mat-icon-button class="example-icon favorite-icon"
+
+    <a
+        *ngIf="!loginService.isLoggedIn()"
+     routerLink="/login" style="margin-right: 20px;" mat-icon-button class="example-icon favorite-icon"
         aria-label="Example icon-button with heart icon">
         Login
     </a>
-    <a routerLink="/register" style="margin-right: 20px;" mat-icon-button class="example-icon"
+    <a *ngIf="!loginService.isLoggedIn()"
+     routerLink="/register" style="margin-right: 20px;" mat-icon-button class="example-icon"
         aria-label="Example icon-button with share icon">
         Register
+    </a>
+    <a *ngIf="loginService.isLoggedIn()"
+     style="margin-right: 20px;" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with share icon">
+        {{this.loginService.getUser().username}}
+    </a>
+
+    <a *ngIf="loginService.isLoggedIn()" (click)="logout()"
+     style="margin-right: 20px;" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with share icon">
+        Logout
     </a>
 </mat-toolbar>
