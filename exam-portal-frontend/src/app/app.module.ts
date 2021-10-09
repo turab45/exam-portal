@@ -16,6 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { HomeComponent } from './pages/home/home.component';
 import { MatIconModule } from '@angular/material/icon';
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UserDashboardComponent } from './pages/normal/user-dashboard/user-dashboard.component';
 
 
 @NgModule({
@@ -25,6 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
     SignupComponent,
     LoginComponent,
     HomeComponent,
+    DashboardComponent,
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@
                 <h1 class="header-txt text-center my-3">Sign Up</h1>
 
 
-                <form #ngForm="ngForm" (ngSubmit)="formSubmit()" class="example-form">
+                <form #register="ngForm" (ngSubmit)="formSubmit(register)" class="example-form">
                     <div class="field-container text-center">
                         <mat-form-field class="example-full-width full-width" appearance="outline">
                             <mat-label>User Name</mat-label>
@@ -59,9 +59,9 @@
                         </mat-form-field>
                     </div>
                     <div class="text-center">
-                        <button type="submit" [disabled]="ngForm.invalid" mat-raised-button color="primary">Sign
+                        <button type="submit" [disabled]="register.invalid" mat-raised-button color="primary">Sign
                             up</button>
-                        <button type="reset" mat-raised-button color="accent" style="margin-left: 5px;">Reset</button>
+                        <button id="reset-btn" type="reset" mat-raised-button color="accent" style="margin-left: 5px;">Reset</button>
                     </div>
                 </form>
             </mat-card>
