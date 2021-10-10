@@ -33,12 +33,15 @@ export class LoginComponent implements OnInit {
             // admin: admin dashboard
             if(this.loginService.getUserRole() == 'ADMIN'){
               this.router.navigate(['/admin']);
+              this.loginService.loginStatusSubject.next(true);
             }else if(this.loginService.getUserRole() == 'NORMAL'){
+              // normal: normal dashboard
               this.router.navigate(['/user-dashboard']);
+              this.loginService.loginStatusSubject.next(true);
             }else{
               Swal.fire('Invalid details!', 'Username and password incorrect', 'error')
             }
-            // normal: normal dashboard
+            
           }
         );
 
