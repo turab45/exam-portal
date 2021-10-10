@@ -10,9 +10,18 @@ import Swal from 'sweetalert2';
 })
 export class NavbarComponent implements OnInit {
 
+  isLoggedIn = false;
+  user = null;
   constructor(public loginService:LoginService, private router:Router) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = this.loginService.isLoggedIn();
+    this.user = this.loginService.getUser();
+
+    this.loginService.loginStatusSubject.asObservable().subscribe(data =>{
+      this.isLoggedIn = this.loginService.isLoggedIn();
+      this.user = this.loginService.getUser();
+    });
   }
 
   public logout(){
@@ -28,6 +37,7 @@ export class NavbarComponent implements OnInit {
       if (result.isConfirmed) {
         this.loginService.logout();
     this.router.navigate(['/login']);
+    this.loginService.loginStatusSubject.next(false);
       }
     })
     

@@ -8,23 +8,23 @@
     <span class="example-spacer"></span>
 
     <a
-        *ngIf="!loginService.isLoggedIn()"
+        *ngIf="!isLoggedIn"
      routerLink="/login" style="margin-right: 20px;" mat-icon-button class="example-icon favorite-icon"
         aria-label="Example icon-button with heart icon">
         Login
     </a>
-    <a *ngIf="!loginService.isLoggedIn()"
+    <a *ngIf="!isLoggedIn"
      routerLink="/register" style="margin-right: 20px;" mat-icon-button class="example-icon"
         aria-label="Example icon-button with share icon">
         Register
     </a>
-    <a *ngIf="loginService.isLoggedIn()"
+    <a *ngIf="isLoggedIn"
      style="margin-right: 20px;" mat-icon-button class="example-icon"
         aria-label="Example icon-button with share icon">
-        {{this.loginService.getUser().username}}
+        {{user.username}}
     </a>
 
-    <a *ngIf="loginService.isLoggedIn()" (click)="logout()"
+    <a *ngIf="isLoggedIn" (click)="logout()"
      style="margin-right: 20px;" mat-icon-button class="example-icon"
         aria-label="Example icon-button with share icon">
         Logout
